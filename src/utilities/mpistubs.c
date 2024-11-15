@@ -111,6 +111,8 @@ HYPRE_Int
 hypre_MPI_Comm_group( hypre_MPI_Comm   comm,
                       hypre_MPI_Group *group )
 {
+  // added by raffael to prevent false positives in Memory Sanitizer
+  *group = 0;
    return (0);
 }
 
@@ -129,6 +131,8 @@ hypre_MPI_Group_incl( hypre_MPI_Group  group,
                       HYPRE_Int       *ranks,
                       hypre_MPI_Group *newgroup )
 {
+  // added by raffael to prevent false positives in Memory Sanitizer
+  *newgroup = 0;
    return (0);
 }
 
